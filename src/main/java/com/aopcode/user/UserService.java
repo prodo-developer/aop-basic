@@ -1,19 +1,9 @@
 package com.aopcode.user;
 
-import com.aopcode.aspect.SuperPerformance;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import java.util.List;
 
-@Service
-public class UserService extends SuperPerformance<User> {
+public interface UserService {
+    List<User> getUsers();
 
-    @Autowired
-    private UserRepository repository;
-
-    @Override
-    public List<User> findAll() {
-        return repository.findAll();
-    }
+    void update(User user) throws Exception;
 }
